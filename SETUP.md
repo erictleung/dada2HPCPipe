@@ -4,6 +4,11 @@ Development Setup
 Here are instructions on how to get started on ExaCloud and setting up the
 development environment needed to run the DADA2 workflow.
 
+**Table of Contents**
+
+- [Package Management](#package-management)
+- [R Environment Setup](#r-environment-setup)
+
 Package Management
 ------------------
 
@@ -29,3 +34,10 @@ slurm. To run an interactive-equivalent session, run the following:
 ```bash
 srun --pty /usr/bin/bash -l
 ```
+
+R Environment Setup
+-------------------
+
+There is a file `install-pkgs.R`, which contains code you can run to check the
+correct version of R and install and/or check the necessary R packages to
+install necessary to run the analysis.
