@@ -22,3 +22,21 @@ if (compareVersion(R_version, R_min_version) >= 0) {
 # Install Bioconductor (Current Version 3.5)
 source("https://bioconductor.org/biocLite.R")
 biocLite()
+
+# Minimum DADA2 version that should be used
+dada_min_vers <- "1.4.0"
+
+# Check DADA2 version, if installed already
+installed_dada2 <- tryCatch({
+    packageVersion("dada2")
+}, error = function(e) {
+    message("DADA2 isn't installed. Will try to install now...")
+    return(0)
+})
+
+# Install recent version of DADA2 if needed
+if (installed_dada2 < dada_min_vers) {
+    biocLite("dada2")
+} else {
+    message("DADA2 version is okay.")
+}
