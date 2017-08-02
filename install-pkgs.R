@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 # Title:
 #   R Development Environment Setup
 # Description:
