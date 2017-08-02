@@ -12,9 +12,10 @@
 #       - DADA2 (>1.4.0)
 
 # Variables and parameters for setup
-# Set minimum R version and find existing R version
-R_min_version <- "3.4.0"
+R_min_version <- "3.4.0" # Set minimum R version
 R_version <- paste0(R.Version()$major, ".", R.Version()$minor)
+bioconductor <- "https://bioconductor.org/biocLite.R"
+dada_min_vers <- "1.4.0" # Minimum DADA2 version that should be used
 
 # Compare and give feedback on steps to take, given found R version
 if (compareVersion(R_version, R_min_version) >= 0) {
@@ -24,11 +25,8 @@ if (compareVersion(R_version, R_min_version) >= 0) {
 }
 
 # Install Bioconductor (Current Version 3.5)
-source("https://bioconductor.org/biocLite.R")
+source(bioconductor)
 biocLite()
-
-# Minimum DADA2 version that should be used
-dada_min_vers <- "1.4.0"
 
 # Check DADA2 version, if installed already
 installed_dada2 <- tryCatch({
