@@ -41,3 +41,15 @@ R Environment Setup
 There is a file `install-pkgs.R`, which contains code you can run to check the
 correct version of R and install and/or check the necessary R packages to
 install necessary to run the analysis.
+
+Additionally, being on a cluster without root access, you'll want to specify
+where to install your R packages. You can use the following to create a
+`.Renviron` file to point to where you want to install R packages.
+
+```r
+# Change paths according to your personal setup
+mkdir -p ~/R/library
+echo 'R_LIBS_USER="~/R/library"' > $HOME/.Renviron
+```
+
+Source: https://csg.sph.umich.edu/docs/R/localpackages.html
