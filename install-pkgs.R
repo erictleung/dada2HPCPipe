@@ -9,7 +9,9 @@
 #   Software versions:
 #       - R (>3.4.0)
 #       - Bioconductor (>3.5)
+#       - DADA2 (>1.4.0)
 
+# Variables and parameters for setup
 # Set minimum R version and find existing R version
 R_min_version <- "3.4.0"
 R_version <- paste0(R.Version()$major, ".", R.Version()$minor)
