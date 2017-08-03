@@ -53,3 +53,27 @@ echo 'R_LIBS_USER="~/R/library"' > $HOME/.Renviron
 ```
 
 Source: https://csg.sph.umich.edu/docs/R/localpackages.html
+
+Slurm Workload Manager
+----------------------
+
+Slurm is the resource manager that I'll focus on for this workflow. Slurm
+stands for "Simple Linux Utility for Resource Management."
+
+Below are some useful commands to use within Slurm:
+
+```bash
+# Submit your script, first_script.sh
+sbatch first_script.sh
+
+# Look at jobs in the queue
+squeue
+```
+
+You can use [this website][ceci] to help generate Slurm scripts. It is designed
+for another cluster, but it should at least help with the initial drafting of a
+submit script you'll want to use.
+
+[ceci]: http://www.ceci-hpc.be/scriptgen.html
+
+Source: http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf
