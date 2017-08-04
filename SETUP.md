@@ -6,12 +6,43 @@ development environment needed to run the DADA2 workflow.
 
 **Table of Contents**
 
-- [Package Management](#package-management)
 - [R Environment Setup](#r-environment-setup)
+- [Package Management](#package-management)
 - [Slurm Workload Manager](#slurm-workload-manager)
+
+R Environment Setup
+-------------------
+
+There is a file `install-pkgs.R`, which contains code you can run to check the
+correct version of R and install and/or check the necessary R packages to
+install necessary to run the analysis.
+
+Additionally, being on a cluster without root access, you'll want to specify
+where to install your R packages, as you can't write to more upstream
+directories. You can use the following to create a `.Renviron` file for R to
+point to where you want to install R packages.
+
+```bash
+# Change paths according to your personal setup
+mkdir -p ~/R/library
+echo 'R_LIBS_USER="~/R/library"' > $HOME/.Renviron
+```
+
+Source: https://csg.sph.umich.edu/docs/R/localpackages.html
 
 Package Management
 ------------------
+
+**Interactive Session**
+
+To run an interactive session, run the following:
+
+```bash
+srun --pty /usr/bin/bash -l
+```
+
+This will allow you to test your code and workflow without worrying about
+stressing out the head coordinating node.
 
 **Setup**
 
@@ -25,35 +56,34 @@ Briefly, following the instructions linked above will give you the following:
 - Miniconda, Python package and virtual environment management
 - Linuxbrew, non-root package management on Linux systems
 
-[exacloud]: https://github.com/greenstick/bootstrapping-package-management-on-exacloud
+For this R workflow, you'll only really need to install Miniconda and R
+essentials. The Anaconda environment has build [an `r-essential`
+package][condar] with R and most used R packages for data science.
 
-**Interactive Session**
-
-The current document hasn't been updated for the cluster new job scheduler,
-slurm. To run an interactive-equivalent session, run the following:
+In sum,
 
 ```bash
-srun --pty /usr/bin/bash -l
+# Open an interactive session
+srun --pty bash -l
+
+# Download and install Miniconda
+wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+bash Miniconda2-latest-Linux-x86_64.sh
+
+# Say yes to adding Miniconda to .bash_profile
+
+# Install R and relevant packages
+conda install r-essentials
+
+# For maintenance and update of all packages
+conda update r-essentials
+
+# For updating a single particular R package, replace XXXX
+conda update r-XXXX
 ```
 
-R Environment Setup
--------------------
-
-There is a file `install-pkgs.R`, which contains code you can run to check the
-correct version of R and install and/or check the necessary R packages to
-install necessary to run the analysis.
-
-Additionally, being on a cluster without root access, you'll want to specify
-where to install your R packages. You can use the following to create a
-`.Renviron` file to point to where you want to install R packages.
-
-```r
-# Change paths according to your personal setup
-mkdir -p ~/R/library
-echo 'R_LIBS_USER="~/R/library"' > $HOME/.Renviron
-```
-
-Source: https://csg.sph.umich.edu/docs/R/localpackages.html
+[exacloud]: https://github.com/greenstick/bootstrapping-package-management-on-exacloud
+[condar]: https://conda.io/docs/r-with-conda.html
 
 Slurm Workload Manager
 ----------------------
