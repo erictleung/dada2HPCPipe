@@ -3,6 +3,11 @@
 setup-dev : ## Check and setup appropriate R environment
 	Rscript ./bin/install-pkgs.R
 
+test : ## Run DADA2 workflow with Mothur MiSeq test data
+	mkdir test download data
+	wget http://www.mothur.org/w/images/d/d6/MiSeqSOPData.zip -P download/
+	unzip ./download/MiSeqSOPData.zip -d data/
+
 .PHONY = setup-dev help
 
 help : ## Help page for Makefile
