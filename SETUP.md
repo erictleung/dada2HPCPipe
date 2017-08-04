@@ -82,6 +82,10 @@ conda update r-essentials
 conda update r-XXXX
 ```
 
+You'll need to sign out and sign back in of the cluster for the paths to be
+reset so that R and other Conda installations will be used instead of the
+system installations.
+
 [exacloud]: https://github.com/greenstick/bootstrapping-package-management-on-exacloud
 [condar]: https://conda.io/docs/r-with-conda.html
 
