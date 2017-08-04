@@ -8,6 +8,7 @@ development environment needed to run the DADA2 workflow.
 
 - [Package Management](#package-management)
 - [R Environment Setup](#r-environment-setup)
+- [Slurm Workload Manager](#slurm-workload-manager)
 
 Package Management
 ------------------
