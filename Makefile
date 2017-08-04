@@ -1,7 +1,7 @@
 # Makefile to Automate Analyses and Setup
 
 setup-dev : ## Check and setup appropriate R environment
-	Rscript install-pkgs.R
+	Rscript ./bin/install-pkgs.R
 
 .PHONY = setup-dev help
 
