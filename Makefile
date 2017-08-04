@@ -8,7 +8,10 @@ test : ## Run DADA2 workflow with Mothur MiSeq test data
 	wget http://www.mothur.org/w/images/d/d6/MiSeqSOPData.zip -P download/
 	unzip ./download/MiSeqSOPData.zip -d data/
 
-.PHONY = setup-dev help
+clean : ## Remove data from data/ and download/
+	rm -rf data download
+
+.PHONY = setup-dev help test clean
 
 help : ## Help page for Makefile
 	@grep -E '^[a-zA-Z_-]+ : .*?## .*$$' $(MAKEFILE_LIST) | \
