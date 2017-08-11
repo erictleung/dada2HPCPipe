@@ -4,12 +4,17 @@ setup-dev : ## Check and setup appropriate R environment
 	Rscript ./bin/install-pkgs.R
 
 test : ## Run DADA2 workflow with Mothur MiSeq test data
+	# Set up data for analysis
 	mkdir test download data
 	wget http://www.mothur.org/w/images/d/d6/MiSeqSOPData.zip -P download/
 	unzip ./download/MiSeqSOPData.zip -d data/
 
+	# Remove and change data to fit expectations
+	rm -rf data/__MACOSX
+	mv data/MiSeq_SOP/* data/ && rmdir data/MiSeq_SOP
+
 clean : ## Remove data from data/ and download/
-	rm -rf data download
+	rm -rf data download test
 
 .PHONY = setup-dev help test clean
 
