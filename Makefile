@@ -5,7 +5,7 @@ setup-dev : ## Check and setup appropriate R environment
 
 test : ## Run DADA2 workflow with Mothur MiSeq test data
 	# Set up data for analysis
-	mkdir test download data
+	mkdir download data
 	wget http://www.mothur.org/w/images/d/d6/MiSeqSOPData.zip -P download/
 	unzip ./download/MiSeqSOPData.zip -d data/
 
