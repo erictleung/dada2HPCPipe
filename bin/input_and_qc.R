@@ -7,9 +7,9 @@ require(dada2)
 #' returns a list object that has the paths to all the samples and sample
 #' names.
 #'
-#' @param path String with path to samples
+#' @param path string with path to samples
 #'
-#' @return List with three elements: forward, reverse, and samples
+#' @return list with three elements: forward, reverse, and samples
 #' @export
 #'
 #' @examples
