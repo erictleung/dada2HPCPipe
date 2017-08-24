@@ -1,7 +1,7 @@
 # Makefile to Automate Analyses and Setup
 
 setup-dev : ## Check and setup appropriate R environment
-	Rscript ./bin/install_pkgs.R
+	Rscript ./R/install_pkgs.R
 
 test : ## Run DADA2 workflow with Mothur MiSeq test data
 	# Set up data for analysis
