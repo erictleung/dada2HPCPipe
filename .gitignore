@@ -35,3 +35,4 @@ vignettes/*.pdf
 # Ignore data files
 data/
 download/
+.Rproj.user

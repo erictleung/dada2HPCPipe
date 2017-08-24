@@ -1,0 +1,11 @@
+Package: dada2HPCPipe
+Type: Package
+Title: DADA2 HPC Workflow Wrapper
+Version: 0.0.1
+Author@R: c(
+    person("Eric", "Leung", "leunge@ohsu.edu", c("aut", "cre"))
+    )
+Description: 16S rRNA microbiome data analysis workflow using DADA2 and R on a
+    high performance cluster using Slurm
+Encoding: UTF-8
+LazyData: true
