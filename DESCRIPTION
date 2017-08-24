@@ -10,6 +10,8 @@ Description: 16S rRNA microbiome data analysis workflow using DADA2 and R on a
     around the DADA2 functions in order to more efficiently use on a cluster.
     The functions break down the workflow into parts based on stopping points
     that require a user's input for the next steps.
+URL: https://github.com/erictleung/dada2HPCPipe
+BugReports: https://github.com/erictleung/dada2HPCPipe/issues
 Depends:
     R (>= 3.4.0)
 Imports:
