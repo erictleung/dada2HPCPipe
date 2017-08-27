@@ -11,7 +11,7 @@
 #'
 #' @examples
 #' path_to_samples <- "~/Samples/"
-#' sample.paths <- read_in_data(path_to_samples)
+#' sample_paths <- read_in_data(path_to_samples)
 read_in_data <- function(path) {
     fns <- list.files(path)  # List of files in path
 
