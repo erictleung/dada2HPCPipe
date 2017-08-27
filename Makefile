@@ -14,7 +14,7 @@ test : ## Run DADA2 workflow with Mothur MiSeq test data
 	mv data/MiSeq_SOP/* data/ && rmdir data/MiSeq_SOP
 
 clean : ## Remove data from data/ and download/
-	rm -rf data download test
+	rm -rf data download
 
 .PHONY = setup-dev help test clean
 
