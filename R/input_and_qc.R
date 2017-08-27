@@ -1,6 +1,3 @@
-# Required packages for functions to work
-require(dada2)
-
 #' Read in Sequence Data
 #'
 #' This function reads in appropriate sequence data from a give directory. It
