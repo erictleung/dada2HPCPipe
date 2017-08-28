@@ -31,8 +31,25 @@ do_input_step <- function(map_file, data_path) {
          seq_names = sequence_data_paths$samples)
 }
 
-do_quality_step <- function() {
+do_quality_step <- function(for_seqs, rev_seqs, w = 7, h = 5) {
+    # Plot all samples if there aren't too many
+    if (length(for_seqs) < 12) {
+        # Generate quality plots for all samples
+        for_plots <- plotQualityProfile(for_seqs)
+        rev_plots <- plotQualityProfile(rev_seqs)
+    } else {
+        random_samples <- for_seqs %>%
+             length() %>%
+             sample(size = 12, replace = FALSE)
+        cat("Plotting these twelve samples:\n", random_samples)
 
+        # Generate quality plots for only twelve forward and reverse
+        for_plots <- plotQualityProfile(for_seqs[random_samples])
+        rev_plots <- plotQualityProfile(rev_seqs[random_samples])
+    }
+
+    ggsave("forward_quality.png", for_plots, width = w, height = h)
+    ggsave("reverse_quality.png", rev_plots, width = w, height = h)
 }
 
 do_derep_step <- function() {
