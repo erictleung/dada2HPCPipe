@@ -20,8 +20,8 @@ length for the forward reads and the second being the truncated length for
 the reverse reads}
 }
 \value{
-new filtered reads put into the filtered/ directory
+new filtered reads put into the \code{filtered/} directory
 }
 \description{
-Filteres and trims paired forward and reverse *.fastq files
+Filters and trims paired forward and reverse FASTQ files.
 }

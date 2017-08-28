@@ -35,7 +35,7 @@ read_in_data <- function(path) {
 
 #' Filter and Trim Sample Sequences
 #'
-#' Filteres and trims paired forward and reverse *.fastq files
+#' Filters and trims paired forward and reverse FASTQ files.
 #'
 #' @param samplNames vector of sample names
 #' @param fnFs vector of paths to forward samples
@@ -45,10 +45,23 @@ read_in_data <- function(path) {
 #'   length for the forward reads and the second being the truncated length for
 #'   the reverse reads
 #'
-#' @return new filtered reads put into the filtered/ directory
+#' @return new filtered reads put into the \code{filtered/} directory
 #' @export
 #'
 #' @examples
+#' # Setup variables
+#' out_dir <- "output"
+#' trunc_len <- c(225, 175)
+#' ids <- c("s001", "s002")
+#'
+#' # Import data
+#' pkg <- "dada2HPCPipe"
+#' dat <- "extdata
+#' sample1 <- system.file(dat, "s001-GTGCTA.fastq", package = pkg)
+#' sample2 <- system.file(dat, "s002-GTGCTG.fastq", package = pkg)
+#'
+#' # Run trim and filter
+#' out <- filter_and_trim(ids, sample1, sample2, out_dir, trunc_len)
 filter_and_trim <- function(samplNames, fnFs, fnRs, outDir, truncLen) {
     if (!file_test("-d", outDir)) dir.create(outDir)
     filtFs <- file.path(outDir, paste0(samplNames, "_F_filt.fastq.gz"))
