@@ -12,7 +12,7 @@ do_input_step(map_file, data_path)
 \item{data_path}{string with directory of samples}
 }
 \value{
-returns list with four elements:
+Returns list with four elements:
 
 \describe{
   \item{\code{map}}{the mapping file}
