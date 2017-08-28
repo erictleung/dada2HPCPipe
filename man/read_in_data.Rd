@@ -19,5 +19,5 @@ names.
 }
 \examples{
 path_to_samples <- "~/Samples/"
-sample.paths <- read_in_data(path_to_samples)
+sample_paths <- read_in_data(path_to_samples)
 }

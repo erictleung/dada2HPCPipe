@@ -24,13 +24,13 @@ read_in_data <- function(path) {
     fnRs <- fastqs[grepl("_R2", fastqs)]  # Reverse sequences
 
     # Extract sample names
-    sample.names <- sapply(X = strsplit(fnFs, "_"), FUN = `[`, 1)
+    sample_names <- sapply(X = strsplit(fnFs, "_"), FUN = `[`, 1)
 
     # Give path names
     fnFs <- file.path(path, fnFs)
     fnRs <- file.path(path, fnRs)
 
-    list(forward = fnFs, reverse = fnRs, samples = sample.names)
+    list(forward = fnFs, reverse = fnRs, samples = sample_names)
 }
 
 #' Filter and Trim Sample Sequences
