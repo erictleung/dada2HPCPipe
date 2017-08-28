@@ -56,7 +56,7 @@ read_in_data <- function(path) {
 #'
 #' # Import data
 #' pkg <- "dada2HPCPipe"
-#' dat <- "extdata
+#' dat <- "extdata"
 #' sample1 <- system.file(dat, "s001-GTGCTA.fastq", package = pkg)
 #' sample2 <- system.file(dat, "s002-GTGCTG.fastq", package = pkg)
 #'

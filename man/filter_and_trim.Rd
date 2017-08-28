@@ -25,3 +25,18 @@ new filtered reads put into the \code{filtered/} directory
 \description{
 Filters and trims paired forward and reverse FASTQ files.
 }
+\examples{
+# Setup variables
+out_dir <- "output"
+trunc_len <- c(225, 175)
+ids <- c("s001", "s002")
+
+# Import data
+pkg <- "dada2HPCPipe"
+dat <- "extdata"
+sample1 <- system.file(dat, "s001-GTGCTA.fastq", package = pkg)
+sample2 <- system.file(dat, "s002-GTGCTG.fastq", package = pkg)
+
+# Run trim and filter
+out <- filter_and_trim(ids, sample1, sample2, out_dir, trunc_len)
+}
