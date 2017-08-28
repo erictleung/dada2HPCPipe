@@ -81,7 +81,14 @@ filter_and_trim <- function(samplNames, fnFs, fnRs, outDir, truncLen) {
 
 #' Filter Filtered Samples by Mapping File
 #'
-#' This function filteres out samples based on some filter or metric
+#' Based on a filter criteria defined by the elements in the mapping file, this
+#' function will filter the mapping file and the associated list of sample
+#' paths.
+#'
+#' This function filters out samples in the mapping file based on some filter or
+#' metric (e.g. certain barcode sequence or group phenotype). It then gets the
+#' subset of samples from the list of sample paths and makes the list consistent
+#' with the mapping file filter.
 #'
 #' @param map_file a mapping phyloseq object
 #' @param filter a character string with query to filter
@@ -103,7 +110,6 @@ filter_and_trim <- function(samplNames, fnFs, fnRs, outDir, truncLen) {
 #' samples <- list(forward = example_forward,
 #'                 reverse = example_reverse,
 #'                 samples= sample_names)
-#' example_ids <- c("s216")
 #' mapping <- data.frame(X.SampleID = c("s216"),
 #'                       BarcodeSequence = c("AGTGATGC"),
 #'                       Description = "Wanted sample")
@@ -122,5 +128,6 @@ filter_samples <- function(map_file, filter, id_col_name, samples) {
     kept_samples <- filtered_all_map[[id_col_name]]
     filt_samples <- lapply(samples, function(x) filter_by_id(kept_samples, x))
 
-    list(map = filtered_all_map, samples = filt_samples)
+    list(map = filtered_all_map, forward = filt_samples$forward,
+         reverse = filt_samples$reverse, samples = filt_samples$samples)
 }

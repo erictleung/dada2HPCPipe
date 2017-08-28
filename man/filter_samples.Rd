@@ -21,7 +21,15 @@ list two attributes filtFs are paths to forward filtered sequences
   and filtRs are paths to reverse filtered sequences
 }
 \description{
-This function filteres out samples based on some filter or metric
+Based on a filter criteria defined by the elements in the mapping file, this
+function will filter the mapping file and the associated list of sample
+paths.
+}
+\details{
+This function filters out samples in the mapping file based on some filter or
+metric (e.g. certain barcode sequence or group phenotype). It then gets the
+subset of samples from the list of sample paths and makes the list consistent
+with the mapping file filter.
 }
 \examples{
 example_forward <- c("lane1-s216-index-GTTTCTGCT-s216_L001_R1_001.fastq.gz",
@@ -33,7 +41,6 @@ sample_names <- c("lane1-s216-index-CACGATGGA-s216",
 samples <- list(forward = example_forward,
                 reverse = example_reverse,
                 samples= sample_names)
-example_ids <- c("s216")
 mapping <- data.frame(X.SampleID = c("s216"),
                       BarcodeSequence = c("AGTGATGC"),
                       Description = "Wanted sample")
