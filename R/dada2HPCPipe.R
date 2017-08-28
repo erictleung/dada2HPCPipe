@@ -15,7 +15,7 @@
 #'   (2016). \url{http://dx.doi.org/10.12688/f1000research.8986.2}
 #' @references DADA2 Homepage \url{http://benjjneb.github.io/dada2/}
 #'
-#' @importFrom phyloseq sample_data
+#' @importFrom phyloseq sample_data import_qiime_sample_data
 #' @importFrom dplyr filter_
 #' @importFrom dada2 fastqPairedFilter
 "_PACKAGE"
