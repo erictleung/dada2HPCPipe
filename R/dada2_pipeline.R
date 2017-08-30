@@ -31,6 +31,19 @@ do_input_step <- function(map_file, data_path) {
          seq_names = sequence_data_paths$samples)
 }
 
+#' Plot Quality Profile Step
+#'
+#' @param for_seqs character vector of paths for the forward sequencing samples
+#' @param rev_seqs character vector of paths for the reverse sequencing samples
+#' @param w width of the output figure
+#' @param h height of the output figure
+#'
+#' @export
+#'
+#' @examples
+#' sample_f <- c("s001_R001.fastq", "s002_R001.fastq")
+#' sample_r <- c("s001_R002.fastq", "s002_R002.fastq")
+#' do_quality_step(sample_f, sample_r)
 do_quality_step <- function(for_seqs, rev_seqs, w = 7, h = 5) {
     # Plot all samples if there aren't too many
     if (length(for_seqs) < 12) {
