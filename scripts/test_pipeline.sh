@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -l
+#!/usr/bin/env bash
 
 # SBATCH --job-name=test_dada2_pipe
 # SBATCH --output=dada2_out.txt
