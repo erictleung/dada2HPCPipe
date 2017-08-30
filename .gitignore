@@ -36,3 +36,6 @@ vignettes/*.pdf
 data/
 download/
 .Rproj.user
+
+# Ignore HPC output files
+*.out
