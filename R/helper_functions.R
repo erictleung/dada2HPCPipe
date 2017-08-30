@@ -34,3 +34,16 @@ filter_by_id <- function(ids, sample_list) {
     boolean_keep_ids <- extract_sample_id(sample_list) %in% ids
     sample_list[boolean_keep_ids]
 }
+
+#' Get Number of Unique Sequences
+#'
+#' @param x uniques vector from dada() output
+#'
+#' @return integer sum of number of unique sequences
+#'
+#' @examples
+#' dada_out <- dada(derep, err)
+#' getN(dada_out[[1]])
+getN <- function(x) {
+    sum(getUniques(x))
+}

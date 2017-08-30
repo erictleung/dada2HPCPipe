@@ -65,22 +65,52 @@ do_quality_step <- function(for_seqs, rev_seqs, w = 7, h = 5) {
     ggsave("reverse_quality.png", rev_plots, width = w, height = h)
 }
 
-do_derep_step <- function() {
-
+do_derep_step <- function(filt_Fs, filt_Rs) {
+    # Learn errors for DADA2 denoising model
+    err_f <- learnErrors(filt_Fs, multithread = TRUE)
+    err_r <- learnErrors(filt_Rs, multithread = TRUE)
+    list(err_f = err_f, err_r = err_r)
 }
 
-do_sample_infer_step <- function() {
+do_sample_infer_step <- function(filt_Fs, err_f, filt_Rs, err_r) {
+    # Dereplicate reads for efficiency
+    derepFs <- derepFastq(filt_Fs, verbose = TRUE)
+    derepRs <- derepFastq(filt_Rs, verbose = TRUE)
 
+    # Main sample inference step of DADA2
+    dadaFs <- dada(derepFs, err = err_f, multithread = TRUE)
+    dadaRs <- dada(derepRs, err = err_r, multithread = TRUE)
+
+    # Merge paired ends
+    mergers <- mergePairs(dadaFs, derepFs, dadaRs, derepRs, verbose = TRUE)
+    mergers
 }
 
-do_rm_chimera_step <- function() {
 
+do_taxonomy_step <- function(mergers, chim_method = "consensus", ref_db) {
+    # Make sequence table with rows = samples and cols = "OTUs"
+    seqtab <- makeSequenceTable(mergers)
+
+    cat("Here's a distribution table of sequence lengths:")
+    seqtab %>% getSequences %>% nchar %>% table %>% print
+
+    # Remove chimeras based on default consensus method
+    seqtab_nochim <- removeBimeraDenovo(seqtab, method = chim_method,
+                                        multithread = TRUE, verbose = TRUE)
+
+    cat("Fraction of sequences with chimeras removed:")
+    print(sum(seqtab_nochim)/sum(seqtab))
+
+    taxa <- assignTaxonomy(seqtab_nochim, ref_db, multithread=TRUE)
+    taxa
 }
 
-do_track_dada2 <- function() {
-
-}
-
-do_taxonomy_step <- function() {
-
+do_track_dada2 <- function(out, dadaFs, getN, mergers, seqtab, seqtab.nochim,
+                           sample.names) {
+    # Create data frame with metrics along the workflow
+    track <- cbind(out, sapply(dadaFs, getN), sapply(mergers, getN),
+                   rowSums(seqtab), rowSums(seqtab.nochim))
+    colnames(track) <- c("input", "filtered", "denoised", "merged",
+                         "tabled", "nonchim")
+    rownames(track) <- sample.names
 }
