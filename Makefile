@@ -1,8 +1,5 @@
 # Makefile to Automate Analyses and Setup
 
-setup-dev : ## Check and setup appropriate R environment
-	Rscript ./R/install_pkgs.R
-
 test : ## Run DADA2 workflow with Mothur MiSeq test data
 	# Set up data for analysis
 	mkdir download data
@@ -16,7 +13,7 @@ test : ## Run DADA2 workflow with Mothur MiSeq test data
 clean : ## Remove data from data/ and download/
 	rm -rf data download
 
-.PHONY = setup-dev help test clean
+.PHONY = help test clean
 
 help : ## Help page for Makefile
 	@grep -E '^[a-zA-Z_-]+ : .*?## .*$$' $(MAKEFILE_LIST) | \
