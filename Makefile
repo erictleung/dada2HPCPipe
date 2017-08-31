@@ -2,16 +2,16 @@
 
 test : ## Run DADA2 workflow with Mothur MiSeq test data
 	# Set up data for analysis
-	mkdir download data
+	mkdir download test_data
 	wget http://www.mothur.org/w/images/d/d6/MiSeqSOPData.zip -P download/
-	unzip ./download/MiSeqSOPData.zip -d data/
+	unzip ./download/MiSeqSOPData.zip -d test_data/
 
 	# Remove and change data to fit expectations
-	rm -rf data/__MACOSX
-	mv data/MiSeq_SOP/* data/ && rmdir data/MiSeq_SOP
+	rm -rf test_data/__MACOSX
+	mv test_data/MiSeq_SOP/* test_data/ && rmdir test_data/MiSeq_SOP
 
 clean : ## Remove data from data/ and download/
-	rm -rf data download
+	rm -rf test_data download
 
 .PHONY = help test clean
 
