@@ -1,5 +1,8 @@
 # Makefile to Automate Analyses and Setup
 
+install : ## Install dada2HPCPipe package in R
+	Rscript -e 'install.packages("devtools");devtools::install_github("erictleung/dada2HPCPipe")'
+
 test : ## Run DADA2 workflow with Mothur MiSeq test data
 	# Set up data for analysis
 	mkdir download test_data
@@ -10,7 +13,7 @@ test : ## Run DADA2 workflow with Mothur MiSeq test data
 	rm -rf test_data/__MACOSX
 	mv test_data/MiSeq_SOP/* test_data/ && rmdir test_data/MiSeq_SOP
 
-clean : ## Remove data from data/ and download/
+clean : ## Remove data from test_data/ and download/
 	rm -rf test_data download
 
 .PHONY = help test clean
