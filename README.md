@@ -100,9 +100,6 @@ package][condar] with R and most used R packages for data science.
 In sum,
 
 ```bash
-# Open an interactive session
-srun --pty bash -l
-
 # Download and install Miniconda
 wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
 bash Miniconda2-latest-Linux-x86_64.sh
