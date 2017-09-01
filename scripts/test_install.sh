@@ -8,5 +8,5 @@
 # SBATCH --mail-type=END,FAIL
 # SBATCH --mail-user=user@univ.edu
 
-# Print out make commands
-cd ..; make help
+# Test correct installation of dada2HPCPipe
+Rscript -e 'library(dada2HPCPipe);cat("No errors!\n")'
