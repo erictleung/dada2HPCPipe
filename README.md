@@ -44,7 +44,6 @@ its [publication][nature] or from [GitHub][github].
 ```
 clean                         Remove data from data/ and download/
 help                          Help page for Makefile
-setup-dev                     Check and setup appropriate R environment
 test                          Run DADA2 workflow with Mothur MiSeq test data
 ```
 
