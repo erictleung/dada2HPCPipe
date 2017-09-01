@@ -109,6 +109,11 @@ bash Miniconda2-latest-Linux-x86_64.sh
 
 # Say yes to adding Miniconda to .bash_profile
 
+# Remove install file
+rm Miniconda2-latest-Linux-x86_64.sh
+
+# Exit the cluster and log back in to see changes
+
 # Install R and relevant packages
 conda install r-essentials
 
