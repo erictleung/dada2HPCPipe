@@ -9,4 +9,8 @@
 # SBATCH --mail-user=user@univ.edu
 
 # Test correct installation of dada2HPCPipe
-Rscript -e 'library(dada2HPCPipe);cat("No errors!\n")'
+RSCRIPT='
+library(dada2HPCPipe);
+cat("No errors!\n")
+'
+Rscript -e $RSCRIPT
