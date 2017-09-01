@@ -20,6 +20,7 @@ download this repository and run `make` and slurm commands to run scripts.
     - [R Environment Setup](#r-environment-setup)
     - [Package Management](#package-management)
     - [Slurm Workload Manager](#slurm-workload-manager)
+- [Troubleshooting](#troubleshooting)
 
 ## Installation
 
@@ -147,3 +148,29 @@ submit script you'll want to use.
 [ceci]: http://www.ceci-hpc.be/scriptgen.html
 
 **Source**: http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf
+
+## Troubleshooting
+
+**Installing this package says it has trouble installing Bioconductor
+packages**
+
+There are two solutions for this. From within R, you can run the following
+
+```R
+setRepositories(ind=1:2)
+```
+
+which will tell R to also include Bioconductor packages in its package
+search. See https://stackoverflow.com/a/34617938/6873133 for more information.
+
+Additionally, you can install Bioconductor manually using the following within
+R
+
+```R
+# Try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+biocLite()
+```
+
+and then using `biocLite()` to install the missing packages. See
+http://bioconductor.org/install/.
