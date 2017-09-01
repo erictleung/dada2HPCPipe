@@ -39,3 +39,6 @@ download/
 
 # Ignore HPC output files
 *.out
+
+# Ignore reference databases
+refs/
