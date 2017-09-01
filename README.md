@@ -43,30 +43,16 @@ its [publication][nature] or from [GitHub][github].
 ## Overview of Makefile
 
 ```
-clean                         Remove data from data/ and download/
-help                          Help page for Makefile
-test                          Run DADA2 workflow with Mothur MiSeq test data
+clean                          Remove data from test_data/ and download/
+help                           Help page for Makefile
+install                        Install dada2HPCPipe package in R
+test                           Run DADA2 workflow with Mothur MiSeq test data
 ```
 
 ## Development Setup
 
 Here are instructions on how to get started on ExaCloud and setting up the
 development environment needed to run the DADA2 workflow.
-
-### R Environment Setup
-
-Being on a cluster without root access, you'll want to specify where to install
-your R packages, as you can't write to more upstream directories. You can use
-the following to create a `~/.Renviron` file for R to point to where you want
-to install R packages.
-
-```bash
-# Change paths according to your personal setup
-mkdir -p ~/R/library
-echo 'R_LIBS_USER="~/R/library"' > $HOME/.Renviron
-```
-
-**Source**: https://csg.sph.umich.edu/docs/R/localpackages.html
 
 ### Package Management
 
