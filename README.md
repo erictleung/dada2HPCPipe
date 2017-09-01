@@ -54,14 +54,10 @@ development environment needed to run the DADA2 workflow.
 
 ### R Environment Setup
 
-There is a file `install-pkgs.R`, which contains code you can run to check the
-correct version of R and install and/or check the necessary R packages to
-install necessary to run the analysis.
-
-Additionally, being on a cluster without root access, you'll want to specify
-where to install your R packages, as you can't write to more upstream
-directories. You can use the following to create a `.Renviron` file for R to
-point to where you want to install R packages.
+Being on a cluster without root access, you'll want to specify where to install
+your R packages, as you can't write to more upstream directories. You can use
+the following to create a `~/.Renviron` file for R to point to where you want
+to install R packages.
 
 ```bash
 # Change paths according to your personal setup
@@ -69,7 +65,7 @@ mkdir -p ~/R/library
 echo 'R_LIBS_USER="~/R/library"' > $HOME/.Renviron
 ```
 
-Source: https://csg.sph.umich.edu/docs/R/localpackages.html
+**Source**: https://csg.sph.umich.edu/docs/R/localpackages.html
 
 ### Package Management
 
@@ -78,7 +74,7 @@ Source: https://csg.sph.umich.edu/docs/R/localpackages.html
 To run an interactive session, run the following:
 
 ```bash
-srun --pty /usr/bin/bash -l
+srun --pty /usr/bin/bash
 ```
 
 This will allow you to test your code and workflow without worrying about
@@ -150,4 +146,4 @@ submit script you'll want to use.
 
 [ceci]: http://www.ceci-hpc.be/scriptgen.html
 
-Source: http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf
+**Source**: http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf
