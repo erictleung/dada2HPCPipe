@@ -3,10 +3,15 @@ cat("Loading dada2HPCPipe and phyloseq packages...\n")
 library(dada2HPCPipe); packageVersion("dada2HPCPipe")
 library(phyloseq); packageVersion("phyloseq")
 
+# Variables
+meta <- "../../test_data/mouse.dpw.metadata"
+mothur_map <- "mothur_mapping.txt"
+data <- "../../test_data"
+
 # Create sample mapping file
 cat("Creating sample mapping file...\n")
 mothur_meta <- read.csv(
-    file = "../../test_data/mouse.dpw.metadata",
+    file = meta,
     sep = "\t",
     stringsAsFactors = FALSE)
 samples.out <- mothur_meta[["group"]]
@@ -26,15 +31,13 @@ samdf <- data.frame(Linker = linker, Barcode = barcode, Subject = subject,
 
 # Specify timing and reorganize columns
 samdf$When <- "Early"
-samdf$When[samdf$Day>100] <- "Late"
+samdf$When[samdf$Day > 100] <- "Late"
 samdf[["#SampleID"]] <- samples.out
 samdf <- samdf[c("#SampleID", "Linker", "Barcode", "Subject", "Gender", "Day",
                  "When", "Description")]
 
 # Write out file and read in file like the function assumes
-mothur_map <- "mothur_mapping.txt"
 write.csv(samdf, mothur_map, row.names = FALSE)
 cat("Importing mapping file...\n")
-data <- "/home/users/leunge/github/dada2HPCPipe/test_data"
 input <- do_input_step(mothur_map, data);
 cat("Read in data successfully!\n")
