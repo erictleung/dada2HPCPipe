@@ -10,8 +10,8 @@ GREENGENES=https://zenodo.org/record/158955
 # Directories
 REFS=refs
 
-install : ## Install dada2HPCPipe package in R
-	Rscript -e 'install.packages("devtools");devtools::install_github("erictleung/dada2HPCPipe")'
+install : ## Install and update dada2HPCPipe package in R
+	Rscript -e 'if (!"devtools" %in% installed.packages()) install.packages(devtools);devtools::install_github("erictleung/dada2HPCPipe")'
 
 dl-ref-dbs : ## Download 16S rRNA reference databases (SILVA,RDP,GG)
 	mkdir $(REFS)
