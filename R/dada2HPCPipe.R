@@ -16,6 +16,7 @@
 #' @references DADA2 Homepage \url{http://benjjneb.github.io/dada2/}
 #'
 #' @import dada2
+#' @importFrom magrittr "%>%"
 #' @importFrom phyloseq sample_data import_qiime_sample_data
 #' @importFrom dplyr filter_
 #' @importFrom ggplot2 ggsave
