@@ -1,5 +1,7 @@
 # dada2HPCPipe
 
+[![Build Status](https://travis-ci.org/erictleung/dada2HPCPipe.svg?branch=master)](https://travis-ci.org/erictleung/dada2HPCPipe)
+
 16S rRNA microbiome data analysis workflow using DADA2 and R on a high
 performance cluster.
 
