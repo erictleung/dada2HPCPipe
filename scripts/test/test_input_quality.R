@@ -45,3 +45,7 @@ input <- do_input_step(mothur_map, data);
 cat("Printing out created file...\n")
 input
 cat("Read in data successfully!\n")
+
+# Plot quality scores
+cat("Calculating quaity plots for random subset...\n")
+do_quality_step(input$seq_f, input$seq_r)
