@@ -40,4 +40,5 @@ samdf <- samdf[c("#SampleID", "Linker", "Barcode", "Subject", "Gender", "Day",
 write.csv(samdf, mothur_map, row.names = FALSE)
 cat("Importing mapping file...\n")
 input <- do_input_step(mothur_map, data);
+input
 cat("Read in data successfully!\n")
