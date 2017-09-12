@@ -13,7 +13,7 @@ REFS=refs
 install : ## Install and update dada2HPCPipe package in R
 	Rscript -e 'if (!"devtools" %in% installed.packages()) install.packages(devtools);devtools::install_github("erictleung/dada2HPCPipe")'
 
-dl-ref-dbs : ## Download 16S rRNA reference databases (SILVA,RDP,GG)
+dl-ref-dbs : ## Download 16S reference databases (SILVA,RDP,GG)
 	mkdir $(REFS)
 	wget $(SILVA_ZENODO)/files/silva_nr_v128_train_set.fa.gz -P $(REFS)
 	wget $(SILVA_ZENODO)/files/silva_species_assignment_v128.fa.gz -P $(REFS)

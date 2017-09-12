@@ -44,8 +44,9 @@ its [publication][nature] or from [GitHub][github].
 
 ```
 clean                          Remove data from test_data/ and download/
+dl-ref-dbs                     Download 16S reference databases (SILVA,RDP,GG)
 help                           Help page for Makefile
-install                        Install dada2HPCPipe package in R
+install                        Install and update dada2HPCPipe package in R
 test                           Run DADA2 workflow with Mothur MiSeq test data
 ```
 
