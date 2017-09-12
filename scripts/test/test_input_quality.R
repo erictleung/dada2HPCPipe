@@ -1,6 +1,8 @@
 # Load package
 cat("Loading dada2HPCPipe and phyloseq packages...\n")
+cat("Loading dada2HPCPipe package...\n")
 library(dada2HPCPipe); packageVersion("dada2HPCPipe")
+cat("Loading phyloseq package...\n")
 library(phyloseq); packageVersion("phyloseq")
 
 # Variables
@@ -40,5 +42,6 @@ samdf <- samdf[c("#SampleID", "Linker", "Barcode", "Subject", "Gender", "Day",
 write.csv(samdf, mothur_map, row.names = FALSE)
 cat("Importing mapping file...\n")
 input <- do_input_step(mothur_map, data);
+cat("Printing out created file...\n")
 input
 cat("Read in data successfully!\n")
