@@ -1,0 +1,16 @@
+---
+title: "Local Workflow Usage"
+author: "Eric Leung"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Introduction
+============
+
+Here I present how to use `dada2HPCPipe` locally, without having to use SLURM on
+a high performance cluster.
