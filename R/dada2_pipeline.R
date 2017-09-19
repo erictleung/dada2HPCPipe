@@ -65,18 +65,10 @@ do_quality_step <- function(for_seqs, rev_seqs, w = 7, h = 5) {
     ggsave("reverse_quality.png", rev_plots, width = w, height = h)
 }
 
-#' Dereplication Step
+#' Learn Error Rates for Sequences
 #'
-#' For DADA2 to work efficiently, samples sequences are dereplicated into
-#' "unique sequences" with corresponding counts of these sequences.
-#'
-#' This step reduces compute time by eliminating redundant comparisons.
-#'
-#' **Note**: DADA retains quality information associated with each unique
-#' sequence. It averages the sequences for each unique sequence. These quality
-#' scores are used in the error model.
-#'
-#' It is intended to take the output from `filterAndTrim()` into this function.
+#' The error rates of the samples sequences are learned, so that they can be
+#' accurately accounted for in the denoising step.
 #'
 #' @param filt_Fs forward filtered reads
 #' @param filt_Rs reverse filtered reads
@@ -90,25 +82,66 @@ do_quality_step <- function(for_seqs, rev_seqs, w = 7, h = 5) {
 #'
 #' @export
 #'
-#' @references See "Dereplication"
-#'   \url{http://benjjneb.github.io/dada2/tutorial.html#dereplication}
-#'
 #' @examples
 #' example_map <- "mapping.txt"
 #' example_data <- "sequences"
 #' input_files <- do_input_step(example_map, example_data)
 #' errors <- do_derep_step(input_files$seq_f, input_files$seq_r)
-do_derep_step <- function(filt_Fs, filt_Rs) {
+do_error_learn <- function(filt_Fs, filt_Rs) {
     # Learn errors for DADA2 denoising model
     err_f <- learnErrors(filt_Fs, multithread = TRUE)
     err_r <- learnErrors(filt_Rs, multithread = TRUE)
     list(err_f = err_f, err_r = err_r)
 }
 
-do_sample_infer_step <- function(filt_Fs, err_f, filt_Rs, err_r) {
+#' Dereplicated Data and Infer Sample Sequence Variants
+#'
+#' Here is the main step in the DADA2 pipeline, which uses the `dada()`
+#' function and dereplicate data.
+#'
+#' For DADA2 to work efficiently, samples sequences are dereplicated into
+#' "unique sequences" with corresponding counts of these sequences.
+#'
+#' This step reduces compute time by eliminating redundant comparisons.
+#'
+#' **Note**: DADA retains quality information associated with each unique
+#' sequence. It averages the sequences for each unique sequence. These quality
+#' scores are used in the error model.
+#'
+#' It is intended to take the output filtered results from `filterAndTrim()`
+#' into this function.
+#'
+#' @param filt_Fs filtered forward sequences
+#' @param err_f error rates from filtered forward sequences
+#' @param filt_Rs filtered forward sequences
+#' @param err_r error rates from filtered reverse sequences
+#' @param name_samples vector of sample names
+#'
+#' @return Returns list of
+#'
+#' \describe{
+#'   \item{\code{mergers}}{merged paired reads}
+#'   \item{\code{dadaFs}}{inferred sequence variants for forward sequences}
+#'   \item{\code{dadaRs}}{inferred sequence variants for reverse sequences}
+#' }
+#'
+#' @export
+#'
+#' @references See "Dereplication"
+#'   \url{http://benjjneb.github.io/dada2/tutorial.html#dereplication}
+#' @references See "Sample Inference"
+#'   \url{http://benjjneb.github.io/dada2/tutorial.html#sample-inference}
+#'
+#' @examples
+#' do_sample_infer_step(filt_Fs, err_f, filt_Rs, err_r, name_samples)
+do_sample_infer_step <- function(filt_Fs, err_f, filt_Rs, err_r, name_samples) {
     # Dereplicate reads for efficiency
     derepFs <- derepFastq(filt_Fs, verbose = TRUE)
     derepRs <- derepFastq(filt_Rs, verbose = TRUE)
+
+    # Add samples names to sequences
+    names(derepFs) <- name_samples
+    names(derepRs) <- name_samples
 
     # Main sample inference step of DADA2
     dadaFs <- dada(derepFs, err = err_f, multithread = TRUE)
@@ -116,7 +149,9 @@ do_sample_infer_step <- function(filt_Fs, err_f, filt_Rs, err_r) {
 
     # Merge paired ends
     mergers <- mergePairs(dadaFs, derepFs, dadaRs, derepRs, verbose = TRUE)
-    mergers
+
+    # Return list of results
+    list(mergers = mergers, dadaFs = dadaFs, dadaRs = dadaRs)
 }
 
 
