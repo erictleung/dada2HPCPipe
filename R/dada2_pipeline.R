@@ -65,6 +65,39 @@ do_quality_step <- function(for_seqs, rev_seqs, w = 7, h = 5) {
     ggsave("reverse_quality.png", rev_plots, width = w, height = h)
 }
 
+#' Dereplication Step
+#'
+#' For DADA2 to work efficiently, samples sequences are dereplicated into
+#' "unique sequences" with corresponding counts of these sequences.
+#'
+#' This step reduces compute time by eliminating redundant comparisons.
+#'
+#' **Note**: DADA retains quality information associated with each unique
+#' sequence. It averages the sequences for each unique sequence. These quality
+#' scores are used in the error model.
+#'
+#' It is intended to take the output from `filterAndTrim()` into this function.
+#'
+#' @param filt_Fs forward filtered reads
+#' @param filt_Rs reverse filtered reads
+#'
+#' @return Returns list of errors
+#'
+#' \describe{
+#'   \item{\code{err_f}}{error rates learned for forward sequences}
+#'   \item{\code{err_r}}{error rates learned for reverse sequences}
+#' }
+#'
+#' @export
+#'
+#' @references See "Dereplication"
+#'   \url{http://benjjneb.github.io/dada2/tutorial.html#dereplication}
+#'
+#' @examples
+#' example_map <- "mapping.txt"
+#' example_data <- "sequences"
+#' input_files <- do_input_step(example_map, example_data)
+#' errors <- do_derep_step(input_files$seq_f, input_files$seq_r)
 do_derep_step <- function(filt_Fs, filt_Rs) {
     # Learn errors for DADA2 denoising model
     err_f <- learnErrors(filt_Fs, multithread = TRUE)
