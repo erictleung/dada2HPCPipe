@@ -46,7 +46,11 @@ read_in_data <- function(path) {
 #'   the reverse reads
 #'
 #' @return new filtered reads put into the \code{filtered/} directory
+#'
 #' @export
+#'
+#' @references fastqFilter vs fastqPairedFilter vs filterAndTrim
+#'   \url{https://github.com/benjjneb/dada2/issues/311}
 #'
 #' @examples
 #' # Setup variables

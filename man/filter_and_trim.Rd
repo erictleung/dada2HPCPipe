@@ -40,3 +40,7 @@ sample2 <- system.file(dat, "s002-GTGCTG.fastq", package = pkg)
 # Run trim and filter
 out <- filter_and_trim(ids, sample1, sample2, out_dir, trunc_len)
 }
+\references{
+fastqFilter vs fastqPairedFilter vs filterAndTrim
+  \url{https://github.com/benjjneb/dada2/issues/311}
+}
