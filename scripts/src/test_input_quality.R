@@ -13,7 +13,8 @@ library(phyloseq); packageVersion("phyloseq"); cat("\n")
 
 # Variables
 meta <- "test_data/mouse.dpw.metadata"
-mothur_map <- "metadata/mothur_mapping.txt"
+metadata_dir <- "metadata"
+mothur_map <- file.path(metadata_dir, "mothur_mapping.txt")
 data <- "test_data"
 plot_dir <- "results"
 
@@ -46,6 +47,7 @@ samdf <- samdf[c("#SampleID", "Linker", "Barcode", "Subject", "Gender", "Day",
                  "When", "Description")]
 
 # Write out file and read in file like the function assumes
+dir.create(metadata_dir)
 write.csv(samdf, mothur_map, row.names = FALSE)
 cat("Importing mapping file...\n")
 input <- do_input_step(mothur_map, data);
