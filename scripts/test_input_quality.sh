@@ -8,6 +8,7 @@
 
 # Read in data amd check quality
 echo "Title: Test Reading in Data and Assessing Quality"
+echo "Script: test_input_quality.sh"
 date
 echo ""
 time Rscript src/test_input_quality.R

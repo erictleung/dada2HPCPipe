@@ -8,6 +8,7 @@
 
 # Test correct installation of dada2HPCPipe
 echo "Title: Testing dada2HPCPipe Installation"
+echo "Script: test_install.sh"
 date
 echo ""
 time Rscript src/test_install.R

@@ -8,6 +8,7 @@
 
 # Read in data amd check quality
 echo "Title: Test Dereplication and Denoising Step"
+echo "Script: test_sample_infer.sh"
 date
 echo ""
 time Rscript src/test_sample_infer.R

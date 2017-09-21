@@ -8,6 +8,7 @@
 
 # Read in data amd check quality
 echo "Title: Test Filter, Trim, and Error Learning"
+echo "Script: test_filter_trim_err.sh"
 date
 echo ""
 time Rscript src/test_filter_trim_err.R
