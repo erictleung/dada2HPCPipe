@@ -8,4 +8,4 @@
 
 # Test correct installation of dada2HPCPipe
 date
-Rscript test_install.R
+time Rscript test_install.R
