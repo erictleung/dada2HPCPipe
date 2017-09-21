@@ -10,4 +10,4 @@
 echo "Title: Test Dereplication and Denoising Step"
 date
 echo ""
-time Rscript test_sample_infer.R
+time Rscript src/test_sample_infer.R

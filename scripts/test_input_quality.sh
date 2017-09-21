@@ -10,4 +10,4 @@
 echo "Title: Test Reading in Data and Assessing Quality"
 date
 echo ""
-time Rscript test_input_quality.R
+time Rscript src/test_input_quality.R

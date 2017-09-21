@@ -8,4 +8,4 @@
 
 # Assign taxonomy for inferred results
 date
-time Rscript test_taxonomy.R
+time Rscript src/test_taxonomy.R
