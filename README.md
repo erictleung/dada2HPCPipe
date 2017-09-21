@@ -122,7 +122,23 @@ system installations.
 Slurm is the resource manager that I'll focus on for this workflow. Slurm
 stands for "Simple Linux Utility for Resource Management."
 
-Below are some useful commands to use within Slurm:
+An example script might be this.
+
+```bash
+$ cat first_script.sh
+#!/bin/bash
+# Template for simple SLURM script
+# SBATCH --job-name="Job Name"
+# SBATCH --partition=exacloud
+
+srun hostname
+srun pwd
+srun hostinfo
+```
+
+The quick answer on `sbatch` vs `srun` can be found [here][srunsbatch].
+
+Below are some useful commands to use within Slurm using the script above.
 
 ```bash
 # Submit your script, first_script.sh
@@ -130,12 +146,14 @@ sbatch first_script.sh
 
 # Look at jobs in the queue
 squeue
+squeue -u $USER # Take a look at your specific jobs
 ```
 
 You can use [this website][ceci] to help generate Slurm scripts. It is designed
 for another cluster, but it should at least help with the initial drafting of a
 submit script you'll want to use.
 
+[srunsbatch]: https://www.cs.virginia.edu/~csadmin/wiki/index.php/SLURM#Submitting_Jobs
 [ceci]: http://www.ceci-hpc.be/scriptgen.html
 
 **Source**: http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf
