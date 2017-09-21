@@ -48,4 +48,4 @@ ggsave(error_r_plot, err_plot_r, width = 7, height = 5)
 
 # Save errors and other information to be used in pipeline
 dir.create(temp_results) # Place to put intermediate files
-save(mothur_map, out, errs, file = step_results_file)
+save(input, out, errs, file = step_results_file)
