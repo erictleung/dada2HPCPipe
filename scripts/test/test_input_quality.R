@@ -9,7 +9,7 @@ library(phyloseq); packageVersion("phyloseq")
 meta <- "../../test_data/mouse.dpw.metadata"
 mothur_map <- "mothur_mapping.txt"
 data <- "../../test_data"
-plot_dir <- "results"
+plot_dir <- "plots"
 
 # Create sample mapping file
 cat("Creating sample mapping file...\n")
