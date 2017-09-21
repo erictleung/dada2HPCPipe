@@ -33,10 +33,13 @@ vignettes/*.pdf
 *.knit.md
 
 # Ignore data files
-data/
-download/
+scripts/data/
+scripts/download/
 .Rproj.user
-test_data/
+scripts/test_data/
+scripts/results/
+scripts/metadata/
+scripts/filtered/
 
 # Ignore HPC output files
 *.out
