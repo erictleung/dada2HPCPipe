@@ -7,4 +7,5 @@
 # SBATCH --partition=exacloud
 
 # Read in data amd check quality
+date
 Rscript test_input_quality.R

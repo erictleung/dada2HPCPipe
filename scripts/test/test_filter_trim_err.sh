@@ -7,4 +7,5 @@
 # SBATCH --partition=exacloud
 
 # Read in data amd check quality
+date
 Rscript test_filter_trim_err.R
