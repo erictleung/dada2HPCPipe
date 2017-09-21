@@ -12,6 +12,7 @@ library(ggplot2); packageVersion("ggplot2")
 # Variables
 mothur_map <- "mothur_mapping.txt"
 data <- "../../test_data"
+temp_results <- "results"
 
 # Read in file like the function assumes
 cat("Importing mapping file...\n")
@@ -35,3 +36,7 @@ err_plot_f <- plotErrors(errs$err_f, nominalQ = TRUE)
 err_plot_r <- plotErrors(errs$err_r, nominalQ = TRUE)
 ggsave("forward_errors.png", err_plot_f, width = 7, height = 5)
 ggsave("reverse_errors.png", err_plot_r, width = 7, height = 5)
+
+# Save errors and other information to be used in pipeline
+dir.create(temp_results) # Place to put intermediate files
+save(mothur_map, out, errs, file = "dada2_post_filter_err_learn.RData")
