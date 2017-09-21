@@ -10,4 +10,5 @@
 echo "Title: Construct Sequence Table, Remove Chimeras, and Assign Taxonomy"
 echo "Script: test_4_taxonomy.sh"
 date
+echo ""
 time Rscript src/test_taxonomy.R
