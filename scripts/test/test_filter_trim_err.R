@@ -42,7 +42,7 @@ errs <- do_error_learn(out$filtFs, out$filtRs)
 # Get and plot errors learned
 err_plot_f <- plotErrors(errs$err_f, nominalQ = TRUE)
 err_plot_r <- plotErrors(errs$err_r, nominalQ = TRUE)
-dir.create(plot_dir)
+if (!file_test("-d", plot_dir)) dir.create(plot_dir)
 ggsave(error_f_plot, err_plot_f, width = 7, height = 5)
 ggsave(error_r_plot, err_plot_r, width = 7, height = 5)
 
