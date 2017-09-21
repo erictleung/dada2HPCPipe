@@ -12,9 +12,9 @@ cat("Loading phyloseq package...\n")
 library(phyloseq); packageVersion("phyloseq"); cat("\n")
 
 # Variables
-meta <- "../test_data/mouse.dpw.metadata"
+meta <- "test_data/mouse.dpw.metadata"
 mothur_map <- "metadata/mothur_mapping.txt"
-data <- "../test_data"
+data <- "test_data"
 plot_dir <- "results"
 
 # Create sample mapping file

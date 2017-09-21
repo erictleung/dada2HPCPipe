@@ -9,6 +9,8 @@ GREENGENES=https://zenodo.org/record/158955
 
 # Directories
 REFS=refs
+TEST_DL=scripts/download
+TEST_DAT=scripts/test_data
 
 install : ## Install and update dada2HPCPipe package in R
 	Rscript -e 'if (!"devtools" %in% installed.packages()) install.packages(devtools);devtools::install_github("erictleung/dada2HPCPipe")'
@@ -26,16 +28,16 @@ dl-ref-dbs : ## Download 16S reference databases (SILVA,RDP,GG)
 
 test : ## Run DADA2 workflow with Mothur MiSeq test data
 	# Set up data for analysis
-	mkdir download test_data
-	wget http://www.mothur.org/w/images/d/d6/MiSeqSOPData.zip -P download/
-	unzip ./download/MiSeqSOPData.zip -d test_data/
+	mkdir -p $(TEST_DL) $(TEST_DAT)
+	wget http://www.mothur.org/w/images/d/d6/MiSeqSOPData.zip -P $(TEST_DL)
+	unzip $(TEST_DL)/MiSeqSOPData.zip -d $(TEST_DAT)
 
 	# Remove and change data to fit expectations
-	rm -rf test_data/__MACOSX
-	mv test_data/MiSeq_SOP/* test_data/ && rmdir test_data/MiSeq_SOP
+	rm -rf $(TEST_DAT)/__MACOSX
+	mv $(TEST_DAT)/MiSeq_SOP/* $(TEST_DAT)/ && rmdir $(TEST_DAT)/MiSeq_SOP
 
-clean : ## Remove data from test_data/ and download/
-	rm -rf test_data download refs
+clean : ## Remove data from test_data/, download/, and refs/
+	rm -rf $(TEST_DL) $(TEST_DAT) $(REFS)
 
 .PHONY = help test clean install dl-ref-dbs
 
