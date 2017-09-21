@@ -18,11 +18,11 @@ dl-ref-dbs : ## Download 16S reference databases (SILVA,RDP,GG)
 	wget $(SILVA_ZENODO)/files/silva_nr_v128_train_set.fa.gz -P $(REFS)
 	wget $(SILVA_ZENODO)/files/silva_species_assignment_v128.fa.gz -P $(REFS)
 	wget $(SILVA_ZENODO)/files/SILVA_LICENSE -P refs/ -P $(REFS)
-	wget $(RDP16)/files/rdp_species_assignment_16.fa.gz -P refs/
-	wget $(RDP16)/files/rdp_train_set_16.fa.gz -P refs/
-	wget $(RDP14)/files/rdp_species_assignment_14.fa.gz -P refs/
-	wget $(RDP14)/files/rdp_train_set_14.fa.gz -P refs/
-	wget $(GREENGENES)/files/gg_13_8_train_set_97.fa.gz -P refs/
+	wget $(RDP16)/files/rdp_species_assignment_16.fa.gz -P $(REFS)
+	wget $(RDP16)/files/rdp_train_set_16.fa.gz -P $(REFS)
+	wget $(RDP14)/files/rdp_species_assignment_14.fa.gz -P $(REFS)
+	wget $(RDP14)/files/rdp_train_set_14.fa.gz -P $(REFS)
+	wget $(GREENGENES)/files/gg_13_8_train_set_97.fa.gz -P $(REFS)
 
 test : ## Run DADA2 workflow with Mothur MiSeq test data
 	# Set up data for analysis
