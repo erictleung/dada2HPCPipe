@@ -6,7 +6,7 @@ library(dada2HPCPipe); packageVersion("dada2HPCPipe"); cat("\n")
 # Variables
 temp_results <- "results"
 sample_infer_file <- file.path(temp_results, "dada2_post_sample_infer.RData")
-refdb <- "../../refs/rdp_train_set_16.fa.gz"
+refdb <- "../refs/rdp_train_set_16.fa.gz"
 seqresults <- file.path(temp_results, "sequence_table.rds")
 
 # Load data from inference step

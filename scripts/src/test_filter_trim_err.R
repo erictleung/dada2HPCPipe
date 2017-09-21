@@ -14,8 +14,9 @@ cat("Loading ggplot2 package...\n")
 library(ggplot2); packageVersion("ggplot2"); cat("\n")
 
 # Variables
-mothur_map <- "mothur_mapping.txt"
-data <- "../../test_data"
+metadata_dir <- "metadata"
+mothur_map <- file.path(metadata_dir, "mothur_mapping.txt")
+data <- "test_data"
 temp_results <- "results"
 step_results_file <- file.path(temp_results, "dada2_post_filter_errors.RData")
 plot_dir <- "results"
