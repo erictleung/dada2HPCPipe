@@ -158,7 +158,32 @@ do_sample_infer_step <- function(filt_Fs, err_f, filt_Rs, err_r, name_samples) {
     list(mergers = mergers, dadaFs = dadaFs, dadaRs = dadaRs)
 }
 
-
+#' Construct Sequence Table, Remove Chimeras, and Assign Taxonomy
+#'
+#' @param mergers merged pairs of sequences
+#' @param chim_method string for method of chimera removal, either "consensus"
+#'   (default) or "pooled"
+#'
+#' @return Returns list of
+#'
+#' \describe{
+#'   \item{\code{seqtab}}{sequence table}
+#'   \item{\code{seqtab_nochim}}{sequence table without chimeras}
+#'   \item{\code{taxa}}{assigned taxonomy from sequence variants}
+#' }
+#'
+#' @export
+#'
+#' @references See "Construct sequence table"
+#'   \url{http://benjjneb.github.io/dada2/tutorial.html#construct-sequence-table}
+#' @references See "Remove chimeras"
+#'   \url{http://benjjneb.github.io/dada2/tutorial.html#remove-chimeras}
+#' @references See "Assign taxonomy"
+#'   \url{http://benjjneb.github.io/dada2/tutorial.html#assign-taxonomy}
+#'
+#' @examples
+#' refdb <- "greengenes.fa.gz"
+#' do_taxonomy_step(mergers, ref_db = refdb)
 do_taxonomy_step <- function(mergers, chim_method = "consensus", ref_db) {
     # Make sequence table with rows = samples and cols = "OTUs"
     seqtab <- makeSequenceTable(mergers)
@@ -171,10 +196,12 @@ do_taxonomy_step <- function(mergers, chim_method = "consensus", ref_db) {
                                         multithread = TRUE, verbose = TRUE)
 
     cat("Fraction of sequences with chimeras removed:")
-    print(sum(seqtab_nochim)/sum(seqtab))
+    print(sum(seqtab_nochim) / sum(seqtab))
 
-    taxa <- assignTaxonomy(seqtab_nochim, ref_db, multithread=TRUE)
-    taxa
+    taxa <- assignTaxonomy(seqtab_nochim, ref_db, multithread = TRUE)
+
+    # Return list of results
+    list(seqtab = seqtab, seqtab_nochim = seqtab_nochim, taxa = taxa)
 }
 
 do_track_dada2 <- function(out, dadaFs, getN, mergers, seqtab, seqtab.nochim,

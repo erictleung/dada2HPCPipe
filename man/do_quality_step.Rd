@@ -4,12 +4,14 @@
 \alias{do_quality_step}
 \title{Plot Quality Profile Step}
 \usage{
-do_quality_step(for_seqs, rev_seqs, w = 7, h = 5)
+do_quality_step(for_seqs, rev_seqs, plot_dir = "results", w = 7, h = 5)
 }
 \arguments{
 \item{for_seqs}{character vector of paths for the forward sequencing samples}
 
 \item{rev_seqs}{character vector of paths for the reverse sequencing samples}
+
+\item{plot_dir}{string for directory name to output plots to}
 
 \item{w}{width of the output figure}
 
