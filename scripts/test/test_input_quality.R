@@ -1,9 +1,9 @@
 # Load package
 cat("Loading dada2HPCPipe and phyloseq packages...\n")
 cat("Loading dada2HPCPipe package...\n")
-library(dada2HPCPipe); packageVersion("dada2HPCPipe")
+library(dada2HPCPipe); packageVersion("dada2HPCPipe"); cat("\n")
 cat("Loading phyloseq package...\n")
-library(phyloseq); packageVersion("phyloseq")
+library(phyloseq); packageVersion("phyloseq"); cat("\n")
 
 # Variables
 meta <- "../../test_data/mouse.dpw.metadata"

@@ -1,11 +1,11 @@
 # Load package
 cat("Loading dada2HPCPipe and other packages...\n")
 cat("Loading dada2HPCPipe package...\n")
-library(dada2HPCPipe); packageVersion("dada2HPCPipe")
+library(dada2HPCPipe); packageVersion("dada2HPCPipe"); cat("\n")
 cat("Loading dada2 package...\n")
-library(dada2); packageVersion("dada2")
+library(dada2); packageVersion("dada2"); cat("\n")
 cat("Loading phyloseq package...\n")
-library(phyloseq); packageVersion("phyloseq")
+library(phyloseq); packageVersion("phyloseq"); cat("\n")
 
 # Variables
 temp_results <- "results"
