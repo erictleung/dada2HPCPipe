@@ -65,8 +65,8 @@ do_quality_step <- function(for_seqs, rev_seqs, plot_dir = "results",
 
     for_plot_dir <- file.path(plot_dir, "forward_quality.png")
     rev_plot_dir <- file.path(plot_dir, "reverse_quality.png")
-    ggsave(for_plots_dir, for_plots, width = w, height = h)
-    ggsave(rev_plots_dir, rev_plots, width = w, height = h)
+    ggsave(for_plot_dir, for_plots, width = w, height = h)
+    ggsave(rev_plot_dir, rev_plots, width = w, height = h)
 }
 
 #' Learn Error Rates for Sequences
