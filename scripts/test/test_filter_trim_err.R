@@ -14,7 +14,7 @@ mothur_map <- "mothur_mapping.txt"
 data <- "../../test_data"
 temp_results <- "results"
 step_results_file <- file.path(temp_results, "dada2_post_filter_errors.RData")
-plot_dir <- "plots"
+plot_dir <- "results"
 error_f_plot <- file.path(plot_dir, "forward_errors.png")
 error_r_plot <- file.path(plot_dir, "reverse_errors.png")
 truncation <- c(240, 160)
