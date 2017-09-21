@@ -9,6 +9,7 @@ library(phyloseq); packageVersion("phyloseq")
 meta <- "../../test_data/mouse.dpw.metadata"
 mothur_map <- "mothur_mapping.txt"
 data <- "../../test_data"
+plot_dir <- "results"
 
 # Create sample mapping file
 cat("Creating sample mapping file...\n")
@@ -48,4 +49,5 @@ cat("Read in data successfully!\n")
 
 # Plot quality scores
 cat("Calculating quaity plots for random subset...\n")
-do_quality_step(input$seq_f, input$seq_r)
+dir.create(plot_dir)
+do_quality_step(input$seq_f, input$seq_r, plot_dir)
