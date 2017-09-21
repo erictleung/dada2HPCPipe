@@ -1,3 +1,9 @@
+# Description:
+#   This script does the following:
+#       - creates a fake mapping file to use in downstream analyses
+#       - read in sequence samples
+#       - plot quality scores for a subset of samples
+
 # Load package
 cat("Loading dada2HPCPipe and phyloseq packages...\n")
 cat("Loading dada2HPCPipe package...\n")

@@ -1,3 +1,9 @@
+# Description:
+#   This step performs a dereplication step and the main denoising step of the
+#   DADA2 algorithm pipeline.
+#
+#   The results of both steps are saved in a file in the results/ directory.
+
 # Load package
 cat("Loading dada2HPCPipe and other packages...\n")
 cat("Loading dada2HPCPipe package...\n")

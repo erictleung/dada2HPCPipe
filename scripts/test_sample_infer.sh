@@ -7,5 +7,7 @@
 # SBATCH --partition=exacloud
 
 # Read in data amd check quality
+echo "Title: Test Dereplication and Denoising Step"
 date
+echo ""
 time Rscript test_sample_infer.R

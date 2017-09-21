@@ -7,5 +7,7 @@
 # SBATCH --partition=exacloud
 
 # Read in data amd check quality
+echo "Title: Test Filter, Trim, and Error Learning"
 date
-time Rscript test_filter_trim_err.R
+echo ""
+time Rscript src/test_filter_trim_err.R

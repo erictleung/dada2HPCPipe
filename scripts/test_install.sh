@@ -7,5 +7,7 @@
 # SBATCH --partition=exacloud
 
 # Test correct installation of dada2HPCPipe
+echo "Title: Testing dada2HPCPipe Installation"
 date
-time Rscript test_install.R
+echo ""
+time Rscript src/test_install.R

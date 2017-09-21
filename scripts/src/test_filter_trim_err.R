@@ -1,3 +1,7 @@
+# Description:
+#   This script filters, trims the sample sequences based on truncation input,
+#   and then learns the error rates from these new sample sequences.
+
 # Load package
 cat("Loading dada2HPCPipe and other packages...\n")
 cat("Loading dada2HPCPipe package...\n")
