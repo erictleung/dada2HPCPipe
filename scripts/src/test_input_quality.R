@@ -51,9 +51,10 @@ cat("Importing mapping file...\n")
 input <- do_input_step(mothur_map, data);
 cat("Printing out created file...\n")
 input
-cat("Read in data successfully!\n")
+cat("Read in data successfully!\n\n")
 
 # Plot quality scores
 cat("Calculating quaity plots for random subset...\n")
 dir.create(plot_dir)
 do_quality_step(input$seq_f, input$seq_r, plot_dir)
+cat("\n")
