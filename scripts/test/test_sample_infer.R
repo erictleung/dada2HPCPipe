@@ -22,4 +22,4 @@ dada_result <- do_sample_infer_step(out$filtFs, errs$err_f,
 
 # Save results of file
 cat("Saving results of dereplication and sample inference\n")
-save(dada_results, file = sample_infer_file)
+save(dada_result, file = sample_infer_file)
