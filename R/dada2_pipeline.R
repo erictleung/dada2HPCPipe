@@ -35,6 +35,7 @@ do_input_step <- function(map_file, data_path) {
 #'
 #' @param for_seqs character vector of paths for the forward sequencing samples
 #' @param rev_seqs character vector of paths for the reverse sequencing samples
+#' @param plot_dir string for directory name to output plots to
 #' @param w width of the output figure
 #' @param h height of the output figure
 #'
@@ -44,7 +45,8 @@ do_input_step <- function(map_file, data_path) {
 #' sample_f <- c("s001_R001.fastq", "s002_R001.fastq")
 #' sample_r <- c("s001_R002.fastq", "s002_R002.fastq")
 #' do_quality_step(sample_f, sample_r)
-do_quality_step <- function(for_seqs, rev_seqs, w = 7, h = 5) {
+do_quality_step <- function(for_seqs, rev_seqs, plot_dir = "results",
+                            w = 7, h = 5) {
     # Plot all samples if there aren't too many
     if (length(for_seqs) < 12) {
         # Generate quality plots for all samples
@@ -61,8 +63,10 @@ do_quality_step <- function(for_seqs, rev_seqs, w = 7, h = 5) {
         rev_plots <- plotQualityProfile(rev_seqs[random_samples])
     }
 
-    ggsave("forward_quality.png", for_plots, width = w, height = h)
-    ggsave("reverse_quality.png", rev_plots, width = w, height = h)
+    for_plot_dir <- file.path(plot_dir, "forward_quality.png")
+    rev_plot_dir <- file.path(plot_dir, "reverse_quality.png")
+    ggsave(for_plots_dir, for_plots, width = w, height = h)
+    ggsave(rev_plots_dir, rev_plots, width = w, height = h)
 }
 
 #' Learn Error Rates for Sequences
