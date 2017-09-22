@@ -12,6 +12,18 @@ REFS=refs
 TEST_DL=scripts/download
 TEST_DAT=scripts/test_data
 
+setup : ## Setup development environment with Conda
+	# Download and install Miniconda
+	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+	bash Miniconda2-latest-Linux-x86_64.sh
+
+	# Remove install file
+	rm Miniconda2-latest-Linux-x86_64.sh
+
+condar : setup ## Install R and essential packages
+	# Install R and relevant packages
+	conda install r-essentials
+
 install : ## Install and update dada2HPCPipe package in R
 	Rscript -e 'if (!"devtools" %in% installed.packages()) install.packages(devtools);devtools::install_github("erictleung/dada2HPCPipe")'
 
