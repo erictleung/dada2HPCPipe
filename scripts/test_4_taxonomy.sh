@@ -6,9 +6,14 @@
 # SBATCH --time=01:20:00
 # SBATCH --partition=exacloud
 
+# Script variables
+SCRIPTNAME=test_4_taxonomy.sh
+RSCRIPT=src/test_taxonomy.R
+
 # Assign taxonomy for inferred results
 echo "Title: Construct Sequence Table, Remove Chimeras, and Assign Taxonomy"
-echo "Script: test_4_taxonomy.sh"
+echo "Script: ${SCRIPTNAME}"
+echo "R Script: ${RSCRIPT}"
 date
 echo ""
-time Rscript src/test_taxonomy.R
+time Rscript $RSCRIPT

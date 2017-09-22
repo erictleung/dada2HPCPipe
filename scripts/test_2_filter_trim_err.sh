@@ -6,9 +6,14 @@
 # SBATCH --time=01:20:00
 # SBATCH --partition=exacloud
 
+# Script variables
+SCRIPTNAME=test_2_filter_trim_err.sh
+RSCRIPT=src/test_filter_trim_err.R
+
 # Read in data amd check quality
 echo "Title: Test Filter, Trim, and Error Learning"
-echo "Script: test_2_filter_trim_err.sh"
+echo "Script: ${SCRIPTNAME}"
+echo "R Script: ${RSCRIPT}"
 date
 echo ""
-time Rscript src/test_filter_trim_err.R
+time Rscript $RSCRIPT

@@ -6,9 +6,14 @@
 # SBATCH --time=01:20:00
 # SBATCH --partition=exacloud
 
+# Script variables
+SCRIPTNAME=test_3_sample_infer.sh
+RSCRIPT=src/test_sample_infer.R
+
 # Read in data amd check quality
 echo "Title: Test Dereplication and Denoising Step"
-echo "Script: test_3_sample_infer.sh"
+echo "Script: ${SCRIPTNAME}"
+echo "R Script: ${RSCRIPT}"
 date
 echo ""
-time Rscript src/test_sample_infer.R
+time Rscript $RSCRIPT
