@@ -45,10 +45,12 @@ its [publication][nature] or from [GitHub][github].
 ## Overview of Makefile
 
 ```
-clean                          Remove data from test_data/ and download/
+clean                          Remove data from test_data/, download/, and refs/
+condar                         Install R and essential packages
 dl-ref-dbs                     Download 16S reference databases (SILVA,RDP,GG)
 help                           Help page for Makefile
 install                        Install and update dada2HPCPipe package in R
+setup                          Setup development environment with Conda
 test                           Run DADA2 workflow with Mothur MiSeq test data
 ```
 
@@ -86,7 +88,17 @@ For this R workflow, you'll only really need to install Miniconda and R
 essentials. The Anaconda environment has build [an `r-essential`
 package][condar] with R and most used R packages for data science.
 
-In sum,
+Linuxbrew is useful to supplement commands and other software tools you might
+want under package management control.
+
+In summary to setup the dependencies for DADA2, run the following.
+
+```bash
+make setup
+make condar
+```
+
+The `make setup` runs the following
 
 ```bash
 # Download and install Miniconda
@@ -97,9 +109,14 @@ bash Miniconda2-latest-Linux-x86_64.sh
 
 # Remove install file
 rm Miniconda2-latest-Linux-x86_64.sh
+```
 
-# Exit the cluster and log back in to see changes
+To see changes, you'll first need to exit the cluster and log back in.
 
+The `make condar` installs R and other essential R packages, which is laid out
+as the following
+
+```bash
 # Install R and relevant packages
 conda install r-essentials
 
@@ -109,10 +126,6 @@ conda update r-essentials
 # For updating a single particular R package, replace XXXX
 conda update r-XXXX
 ```
-
-You'll need to sign out and sign back in of the cluster for the paths to be
-reset so that R and other Conda installations will be used instead of the
-system installations.
 
 [exacloud]: https://github.com/greenstick/bootstrapping-package-management-on-exacloud
 [condar]: https://conda.io/docs/r-with-conda.html
