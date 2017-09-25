@@ -6,6 +6,8 @@ SILVA_ZENODO=https://zenodo.org/record/824551
 RDP16=https://zenodo.org/record/801828
 RDP14=https://zenodo.org/record/158955
 GREENGENES=https://zenodo.org/record/158955
+CONDA_SHELL=https://repo.continuum.io/miniconda/
+CONDA_SCRIPT=Miniconda2-latest-Linux-x86_64.sh
 
 # Directories
 REFS=refs
@@ -14,11 +16,11 @@ TEST_DAT=scripts/test_data
 
 setup : ## Setup development environment with Conda
 	# Download and install Miniconda
-	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
-	bash Miniconda2-latest-Linux-x86_64.sh
+	wget $(CONDA_SHELL)$(CONDA_SCRIPT)
+	bash $(CONDA_SCRIPT)
 
 	# Remove install file
-	rm Miniconda2-latest-Linux-x86_64.sh
+	rm $(CONDA_SCRIPT)
 
 condar : setup ## Install R and essential packages
 	# Install R and relevant packages

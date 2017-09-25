@@ -13,6 +13,9 @@ seqresults <- file.path(temp_results, "sequence_table.rds")
 load(sample_infer_file)
 
 # Construct sequence table
+if (!file.exists(refdb)) {
+    stop("Taxonomy reference database specified doesn't exist:\n", refdb)
+}
 seqtab <- do_taxonomy_step(dada_result$mergers, ref_db = refdb)
 
 # Save sequence table
