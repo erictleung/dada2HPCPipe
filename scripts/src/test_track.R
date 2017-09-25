@@ -16,8 +16,8 @@ load(sample_infer_file)
 seqtab <- readRDS(seqresults)
 
 # Track resuts
-track <- do_track_dada2(out, dadaFs, dada_result$mergers, seqtab$seqtab,
-                        seqtab$seqtab_nochim, sample_names)
+track <- do_track_dada2(out, dada_result$dadaFs, dada_result$mergers,
+                        seqtab$seqtab, seqtab$seqtab_nochim, sample_names)
 head(track)
 
 # Save sequence table
