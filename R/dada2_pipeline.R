@@ -204,12 +204,33 @@ do_taxonomy_step <- function(mergers, chim_method = "consensus", ref_db) {
     list(seqtab = seqtab, seqtab_nochim = seqtab_nochim, taxa = taxa)
 }
 
-do_track_dada2 <- function(out, dadaFs, getN, mergers, seqtab, seqtab.nochim,
-                           sample.names) {
+#' Construct Sequence Table, Remove Chimeras, and Assign Taxonomy
+#'
+#' @param out matrix output from `filterAndTrim()` function
+#' @param dadaFs dada object output from `dada()` function for forward reads
+#' @param mergers output from `mergePairs()` function
+#' @param seqtab sequence table output from `makeSequenceTable()`
+#' @param seqtab_nochim output from `removeBimeraDenovo()`
+#' @param sample_names vector of sample names
+#'
+#' @return matrix of sample rows and metric columns over the previous pipeline
+#'   steps
+#'
+#' @export
+#'
+#' @references See "Track Reads Through the Pipeline"
+#'   \url{http://benjjneb.github.io/dada2/tutorial.html#track-reads-through-the-pipeline}
+#'
+#' @examples
+#' do_track_dada2(out, dadaFs, getN, mergers, seqtab, seqtab_nochim,
+#' sample_names)
+do_track_dada2 <- function(out, dadaFs, mergers, seqtab, seqtab_nochim,
+                           sample_names) {
     # Create data frame with metrics along the workflow
     track <- cbind(out, sapply(dadaFs, getN), sapply(mergers, getN),
-                   rowSums(seqtab), rowSums(seqtab.nochim))
+                   rowSums(seqtab), rowSums(seqtab_nochim))
     colnames(track) <- c("input", "filtered", "denoised", "merged",
                          "tabled", "nonchim")
-    rownames(track) <- sample.names
+    rownames(track) <- sample_names
+    track
 }
