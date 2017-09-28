@@ -1,3 +1,5 @@
+# Title:
+#   Test Filtering and Trimming Functionality
 # Description:
 #   This script filters, trims the sample sequences based on truncation input,
 #   and then learns the error rates from these new sample sequences.

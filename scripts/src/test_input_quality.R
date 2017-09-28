@@ -1,3 +1,5 @@
+# Title:
+#   Test Input of Data and Sample Quality Scores
 # Description:
 #   This script does the following:
 #       - creates a fake mapping file to use in downstream analyses

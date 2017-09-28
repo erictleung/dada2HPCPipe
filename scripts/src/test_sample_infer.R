@@ -1,3 +1,5 @@
+# Title:
+#   Test DADA2 Sample Inference
 # Description:
 #   This step performs a dereplication step and the main denoising step of the
 #   DADA2 algorithm pipeline.

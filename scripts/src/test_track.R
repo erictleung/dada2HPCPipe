@@ -1,3 +1,6 @@
+# Title:
+#   Test Pipeline Tracking
+
 # Load package
 cat("Loading dada2HPCPipe and other packages...\n")
 cat("Loading dada2HPCPipe package...\n")

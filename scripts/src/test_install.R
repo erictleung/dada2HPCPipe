@@ -1,3 +1,5 @@
+# Title:
+#   Test Package Installation
 # Description:
 #   This script simply tests the loading of the package into R to make sure it
 #   does so without any errors
