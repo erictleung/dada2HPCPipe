@@ -8,7 +8,7 @@
 
 # Script variables
 SCRIPTNAME=test_4_taxonomy.sh
-RSCRIPT=src/test_taxonomy.R
+RSCRIPT=src/test_4_taxonomy.R
 
 # Assign taxonomy for inferred results
 echo "Title: Construct Sequence Table, Remove Chimeras, and Assign Taxonomy"

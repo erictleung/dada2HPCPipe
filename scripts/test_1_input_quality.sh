@@ -8,7 +8,7 @@
 
 # Script variables
 SCRIPTNAME=test_1_input_quality.sh
-RSCRIPT=src/test_input_quality.R
+RSCRIPT=src/test_1_input_quality.R
 
 # Read in data amd check quality
 echo "Title: Test Reading in Data and Assessing Quality"

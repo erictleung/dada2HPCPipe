@@ -8,7 +8,7 @@
 
 # Script variables
 SCRIPTNAME=test_3_sample_infer.sh
-RSCRIPT=src/test_sample_infer.R
+RSCRIPT=src/test_3_sample_infer.R
 
 # Read in data amd check quality
 echo "Title: Test Dereplication and Denoising Step"

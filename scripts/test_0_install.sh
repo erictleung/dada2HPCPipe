@@ -8,7 +8,7 @@
 
 # Script variables
 SCRIPTNAME=test_0_install.sh
-RSCRIPT=src/test_install.R
+RSCRIPT=src/test_0_install.R
 
 # Test correct installation of dada2HPCPipe
 echo "Title: Testing dada2HPCPipe Installation"

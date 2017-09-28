@@ -8,7 +8,7 @@
 
 # Script variables
 SCRIPTNAME=test_2_filter_trim_err.sh
-RSCRIPT=src/test_filter_trim_err.R
+RSCRIPT=src/test_2_filter_trim_err.R
 
 # Read in data amd check quality
 echo "Title: Test Filter, Trim, and Error Learning"

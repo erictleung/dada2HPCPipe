@@ -8,7 +8,7 @@
 
 # Script variables
 SCRIPTNAME=test_5_taxonomy.sh
-RSCRIPT=src/test_track.R
+RSCRIPT=src/test_5_track.R
 
 # Assign taxonomy for inferred results
 echo "Title: Track Reads Through Pipeline"
