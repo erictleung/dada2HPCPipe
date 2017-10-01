@@ -196,3 +196,26 @@ biocLite()
 
 and then using `biocLite()` to install the missing packages. See
 http://bioconductor.org/install/.
+
+**How do I update my packages?**
+
+For regular R package (i.e. non-Bioconductor packages), use `conda` from the
+terminal.
+
+```shell
+# XXX is the package name
+conda install r-XXX
+
+# For example, installing XML
+conda install r-xml
+```
+
+But for Bioconductor packages, use `biocLite()` from within R.
+
+```R
+# Try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+
+# E.g. installing DESeq2
+biocLite("DESeq2")
+```
