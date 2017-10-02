@@ -33,3 +33,17 @@ root/
 
 5 directories, 2 files
 ```
+
+## Transferring Results to Local
+
+You can run the following command on your local terminal to get plots or other
+data.
+
+```shell
+# Explanation:
+#   - scp - secure copy files
+#   - username@exahead.ohsu:~/plots/plot-1.png - modify path after `:` for
+#     files you want to transfer
+#   - where/you/want/file.png - this is the path on your local instance
+scp username@exahead1.ohsu.edu:~/plots/plot-1.png where/you/want/file.png
+```
