@@ -6,6 +6,8 @@
 #       - read in sequence samples
 #       - plot quality scores for a subset of samples
 
+# Setup ------------------------------------------
+
 # Load package
 cat("Loading dada2HPCPipe and phyloseq packages...\n")
 cat("Loading dada2HPCPipe package...\n")
@@ -19,6 +21,8 @@ metadata_dir <- "metadata"
 mothur_map <- file.path(metadata_dir, "mothur_mapping.txt")
 data <- "test_data"
 plot_dir <- "results"
+
+# Create Mapping Data ----------------------------
 
 # Create sample mapping file
 cat("Creating sample mapping file...\n")
@@ -47,6 +51,8 @@ samdf$When[samdf$Day > 100] <- "Late"
 samdf[["#SampleID"]] <- samples.out
 samdf <- samdf[c("#SampleID", "Linker", "Barcode", "Subject", "Gender", "Day",
                  "When", "Description")]
+
+# Write Data and Quality Plots -------------------
 
 # Write out file and read in file like the function assumes
 dir.create(metadata_dir)
