@@ -19,10 +19,11 @@ library(phyloseq); packageVersion("phyloseq"); cat("\n")
 meta <- "test_data/mouse.dpw.metadata"
 metadata_dir <- "metadata"
 mothur_map <- file.path(metadata_dir, "mothur_mapping.txt")
-data <- "test_data"
+data <- "test_data" # Replace with where you put your actual data
 plot_dir <- "results"
 
 # Create Mapping Data ----------------------------
+# Note: This section can be deleted in practice. This is for testing purposes.
 
 # Create sample mapping file
 cat("Creating sample mapping file...\n")
@@ -53,8 +54,10 @@ samdf <- samdf[c("#SampleID", "Linker", "Barcode", "Subject", "Gender", "Day",
                  "When", "Description")]
 
 # Write Data and Quality Plots -------------------
+# Note: Replace mothur_map with your mapping file path.
 
 # Write out file and read in file like the function assumes
+# (The next two lines can be deleted in practice.)
 dir.create(metadata_dir)
 write.csv(samdf, mothur_map, row.names = FALSE)
 cat("Importing mapping file...\n")
