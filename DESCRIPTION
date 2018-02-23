@@ -1,7 +1,7 @@
 Package: dada2HPCPipe
 Type: Package
 Title: DADA2 HPC Workflow Wrapper
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: c(
     person("Eric", "Leung", , "leunge@ohsu.edu", c("aut", "cre"))
     )
