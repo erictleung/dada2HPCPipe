@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# SBATCH --job-name=test_input_quality
-# SBATCH --output=dada2_out.txt
-# SBATCH --error=error.txt
-# SBATCH --time=01:20:00
-# SBATCH --partition=exacloud
+#SBATCH --job-name=1_test_input_quality
+#SBATCH --output=out/1_test_input_quality.out
+#SBATCH --error=error/1_test_input_quality.err
+#SBATCH --time=01:00:00
+#SBATCH --partition=exacloud
 
 # Script variables
 SCRIPTNAME=test_1_input_quality.sh

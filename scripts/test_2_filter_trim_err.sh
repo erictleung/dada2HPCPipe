@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# SBATCH --job-name=test_filter_trim_err
-# SBATCH --output=dada2_out.txt
-# SBATCH --error=error.txt
-# SBATCH --time=01:20:00
-# SBATCH --partition=exacloud
+#SBATCH --job-name=2_test_filter_trim_err
+#SBATCH --output=out/2_test_filter_trim_err.out
+#SBATCH --error=error/2_test_filter_trim_err.err
+#SBATCH --time=03:30:00
+#SBATCH --partition=exacloud
 
 # Script variables
 SCRIPTNAME=test_2_filter_trim_err.sh

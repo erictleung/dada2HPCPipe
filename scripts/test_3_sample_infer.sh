@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# SBATCH --job-name=test_sample_infer
-# SBATCH --output=dada2_out.txt
-# SBATCH --error=error.txt
-# SBATCH --time=01:20:00
-# SBATCH --partition=exacloud
+#SBATCH --job-name=3_test_sample_infer
+#SBATCH --output=out/3_test_sample_infer.out
+#SBATCH --error=error/3_test_sample_infer.err
+#SBATCH --time=03:30:00
+#SBATCH --partition=exacloud
 
 # Script variables
 SCRIPTNAME=test_3_sample_infer.sh

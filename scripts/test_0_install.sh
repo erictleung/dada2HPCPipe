@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# SBATCH --job-name=test_dada2_pipe
-# SBATCH --output=dada2_out.txt
-# SBATCH --error=error.txt
-# SBATCH --time=01:20:00
-# SBATCH --partition=exacloud
+#SBATCH --job-name=0_test_install
+#SBATCH --output=out/0_test_install.out
+#SBATCH --error=error/0_test_install.err
+#SBATCH --time=00:30:00
+#SBATCH --partition=exacloud
 
 # Script variables
 SCRIPTNAME=test_0_install.sh

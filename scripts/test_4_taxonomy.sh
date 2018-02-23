@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# SBATCH --job-name=test_taxonomy
-# SBATCH --output=dada2_out.txt
-# SBATCH --error=error.txt
-# SBATCH --time=01:20:00
-# SBATCH --partition=exacloud
+#SBATCH --job-name=4_test_taxonomy
+#SBATCH --output=out/4_test_taxonomy.out
+#SBATCH --error=error/4_test_taxonomy.err
+#SBATCH --time=01:30:00
+#SBATCH --partition=exacloud
 
 # Script variables
 SCRIPTNAME=test_4_taxonomy.sh
