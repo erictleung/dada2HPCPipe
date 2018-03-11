@@ -166,8 +166,14 @@ You can use [this website][ceci] to help generate Slurm scripts. It is designed
 for another cluster, but it should at least help with the initial drafting of a
 submit script you'll want to use.
 
+For more general resources on using Slurm, check out [here][vandyslurm],
+[here][gatorslurm], and [here][michiganslurm].
+
 [srunsbatch]: https://www.cs.virginia.edu/~csadmin/wiki/index.php/SLURM#Submitting_Jobs
 [ceci]: http://www.ceci-hpc.be/scriptgen.html
+[vandyslurm]: https://www.vanderbilt.edu/accre/documentation/slurm/
+[gatorslurm]: https://help.rc.ufl.edu/doc/Sample_SLURM_Scripts
+[michiganslurm]: https://sph.umich.edu/biostat/computing/cluster/slurm.html
 
 **Source**: http://www.cism.ucl.ac.be/Services/Formations/slurm/2016/slurm.pdf
 
