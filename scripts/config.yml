@@ -1,0 +1,16 @@
+# Configuration File for dada2HPCPipe
+
+# Mapping/metadata file information
+mapping:
+    dir: "metadata"
+    file: "mapping.txt"
+
+# Sequencing data paths
+data_dir: "data"            # Where sequencing data will read from
+filtered_dir: "filtered"    # Filtered sequences will be held here
+results: "results"          # Plots and output for error inference
+
+# Truncation parameters i.e. what length sequence to keep for paired sequences
+truncation:
+    forward: 240
+    reverse: 160
